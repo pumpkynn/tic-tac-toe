@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './index.css';       // 全局样式
+import App from './App';    // 导入根组件
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// 1. 获取HTML中的根DOM节点
+const rootElement = document.getElementById('root');
+
+// 2. 创建React根实例
+const root = ReactDOM.createRoot(rootElement);
+
+// 3. 渲染根组件
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <App />   {/* 这里挂载你的整个应用 */}
+    </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

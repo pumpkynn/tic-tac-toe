@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
+/* 全局样式 */
+body {
+    font-family: sans-serif;
+    margin: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 棋盘布局 */
+.board-row {
+    display: flex;
+    justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.square {
+    width: 60px;
+    height: 60px;
+    margin: 2px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 1px solid #999;
+    background: #fff;
+    cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.square:hover {
+    background: #f0f0f0;
 }
 
-.App-link {
-  color: #61dafb;
+.square.winner {
+    background: #4CAF50;
+    /* 获胜格子高亮 */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 游戏状态和布局 */
+.status {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.game {
+    display: flex;
+    gap: 20px;
+}
+
+.game-info ol {
+    padding-left: 20px;
 }

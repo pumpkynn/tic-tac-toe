@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import Game from './components/Game.jsx';  // 导入你的主游戏组件
+import './App.css';         // 可选：App专用样式
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1>React井字棋</h1>
+      {/* 这里渲染你的核心游戏组件 */}
+      <Game />
     </div>
   );
 }
 
-export default App;
+export default App;  // 必须默认导出！

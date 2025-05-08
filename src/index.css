@@ -1,13 +1,46 @@
+/* 全局样式 */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: sans-serif;
+  margin: 20px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* 棋盘布局 */
+.board-row {
+  display: flex;
+  justify-content: center;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  margin: 2px;
+  font-size: 24px;
+  font-weight: bold;
+  border: 1px solid #999;
+  background: #fff;
+  cursor: pointer;
+}
+
+.square:hover {
+  background: #f0f0f0;
+}
+
+.square.winner {
+  background: #4CAF50;
+  /* 获胜格子高亮 */
+}
+
+/* 游戏状态和布局 */
+.status {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.game {
+  display: flex;
+  gap: 20px;
+}
+
+.game-info ol {
+  padding-left: 20px;
 }
