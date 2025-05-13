@@ -1,0 +1,2 @@
+.square.winner{background:#4caf50}body{font-family:sans-serif;margin:20px}.board-row{display:flex;justify-content:center}.square{background:#fff;border:1px solid #999;cursor:pointer;font-size:24px;font-weight:700;height:60px;margin:2px;width:60px}.square:hover{background:#f0f0f0}.square.winner{background:gold;color:#000;font-weight:700;transition:all .3s ease}.status{font-size:18px;margin:10px 0}.game{display:flex;gap:20px}.game-info ol{padding-left:20px}
+/*# sourceMappingURL=main.51438926.css.map*/

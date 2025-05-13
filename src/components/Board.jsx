@@ -2,41 +2,53 @@ import Square from './Square';
 //主棋盘组件
 export default function Board({ xIsNext, squares, onPlay }) {
     function handleClick(i) {
-        if (calculateWinner(squares) || squares[i]) {
+        if (calculateWinner(squares).winner || squares[i]) {
             return;
         }
         const nextSquares = squares.slice();
         nextSquares[i] = xIsNext ? 'X' : 'O';
         onPlay(nextSquares);
     }
-    const winner = calculateWinner(squares);
+    const { winner, line } = calculateWinner(squares);
     let status;
     if (winner) {
-        status = 'Winner:' + winner;
+        status = 'Winner: ' + winner;
     } else {
-        status = 'Next player:' + (xIsNext ? 'X' : 'O');
+        status = 'Next player: ' + (xIsNext ? 'X' : 'O');
     }
+
+    const renderSquare = (i) => {
+        return (
+            <Square
+                value={squares[i]}
+                onSquareClick={() => handleClick(i)}
+                isWinner={line && line.includes(i)}
+            />
+        );
+    };
+
     return (
         <>
             <div className="status">{status}</div>
             <div className="board-row">
-                <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-                <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-                <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
+                {renderSquare(0)}
+                {renderSquare(1)}
+                {renderSquare(2)}
             </div>
             <div className="board-row">
-                <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
-                <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-                <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
+                {renderSquare(3)}
+                {renderSquare(4)}
+                {renderSquare(5)}
             </div>
             <div className="board-row">
-                <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
-                <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-                <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
+                {renderSquare(6)}
+                {renderSquare(7)}
+                {renderSquare(8)}
             </div>
         </>
     )
 }
+
 function calculateWinner(squares) {
     const lines = [
         [0, 1, 2],
@@ -49,12 +61,16 @@ function calculateWinner(squares) {
         [2, 4, 6]
     ];
     for (let i = 0; i < lines.length; i++) {
-        const [a, b, c] = lines[i];//解构赋值，把该行的值赋给自定义的三个变量
+        const [a, b, c] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            //该位置不为空且是同一个人，那么这个人获胜
-            return squares[a];
+            return {
+                winner: squares[a],
+                line: lines[i]
+            };
         }
-
     }
-    return null;//没有人获胜，返回null
+    return {
+        winner: null,
+        line: null
+    };
 }

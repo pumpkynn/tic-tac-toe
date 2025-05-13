@@ -26,8 +26,10 @@ body {
 }
 
 .square.winner {
-    background: #4CAF50;
-    /* 获胜格子高亮 */
+    background: #ffd700;
+    color: #000;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
 /* 游戏状态和布局 */
