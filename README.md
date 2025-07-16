@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+效果图
+<img width="1083" height="1036" alt="image" src="https://github.com/user-attachments/assets/e84a6900-3a41-458b-906b-8d7804e07d38" />
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
